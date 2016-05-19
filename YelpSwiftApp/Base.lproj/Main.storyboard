@@ -68,9 +68,15 @@
                     <navigationItem key="navigationItem" title="Filter" id="MKy-mM-IM2">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="N2C-Cz-Rsd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onCancel:" destination="UNa-xj-P5D" id="ayN-tk-cJw"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="kfU-Vz-QjB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onSearch:" destination="UNa-xj-P5D" id="Cjy-xB-beN"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

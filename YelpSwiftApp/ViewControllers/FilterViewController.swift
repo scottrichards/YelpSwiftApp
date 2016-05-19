@@ -150,4 +150,12 @@ class FilterViewController: UITableViewController {
         }
     }
 
+    @IBAction func onSearch(sender: AnyObject) {
+        YelpFilters.instance.copyStateFrom(self.model!)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func onCancel(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
