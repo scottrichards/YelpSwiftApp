@@ -28,12 +28,56 @@
                             <outlet property="delegate" destination="Tuh-XI-reM" id="W18-lU-LH0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Yelp" id="MtG-yZ-v96"/>
+                    <navigationItem key="navigationItem" title="Yelp" id="MtG-yZ-v96">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="qYK-Tt-WK8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="UNa-xj-P5D" kind="show" id="K6B-L8-6Xs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ae-7Q-WRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828" y="1169"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="VdW-pb-QXP">
+            <objects>
+                <tableViewController id="UNa-xj-P5D" customClass="FilterViewController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="R9l-n8-MgI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UOw-Mr-565">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UOw-Mr-565" id="f4O-1U-3Rx">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UNa-xj-P5D" id="hWr-G5-voL"/>
+                            <outlet property="delegate" destination="UNa-xj-P5D" id="2G3-5O-z2e"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Filter" id="MKy-mM-IM2">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="N2C-Cz-Rsd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="kfU-Vz-QjB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTf-m4-4kT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="1895"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jqb-F8-gtQ">
