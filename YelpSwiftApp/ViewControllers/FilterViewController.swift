@@ -111,5 +111,43 @@ class FilterViewController: UITableViewController {
             option.selected = switchView.on
         }
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let filter = self.model!.filters[indexPath.section]
+        switch filter.type {
+        case .Single:
+            if filter.opened {
+                let previousIndex = filter.selectedIndex
+                if previousIndex != indexPath.row {
+                    filter.selectedIndex = indexPath.row
+                    let previousIndexPath = NSIndexPath(forRow: previousIndex, inSection: indexPath.section)
+                    self.tableView.reloadRowsAtIndexPaths([indexPath, previousIndexPath], withRowAnimation: .Automatic)
+                }
+            }
+            
+            let opened = filter.opened;
+            filter.opened = !opened;
+            
+            if opened {
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                dispatch_after(time, dispatch_get_main_queue(), {
+                    self.tableView.reloadSections(NSMutableIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+                })
+            } else {
+                self.tableView.reloadSections(NSMutableIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+            }
+        case .Multiple:
+            if !filter.opened && indexPath.row == filter.numItemsVisible {
+                filter.opened = true
+                self.tableView.reloadSections(NSMutableIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+            } else {
+                let option = filter.options[indexPath.row]
+                option.selected = !option.selected
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+        default:
+            break
+        }
+    }
 
 }
