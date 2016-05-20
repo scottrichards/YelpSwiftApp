@@ -15,6 +15,7 @@ class BusinessTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userLocation.requestLocation()
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
         YelpBusiness.searchWithTerm("Restaurants") { (results : [AnyObject]!, error : NSError!) in
