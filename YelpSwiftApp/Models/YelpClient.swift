@@ -6,29 +6,35 @@
 //  Copyright © 2016 Baby Center. All rights reserved.
 //
 
-import Foundation
-
-// The output below is limited by 1 KB.
-// Please Sign Up (Free!) to remove this limitation.
-
-// You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
-let kYelpConsumerKey: String = "cJL5QRpvSjF3k0UNbdhvSg"
-
-let kYelpConsumerSecret: String = "lEaBTbu1MGc9tRUFwE9vqkX6TvU"
-
-let kYelpToken: String = "Tj8hWSjzNc3qw-l-9HP3N3qwYpXbf3Iy"
-
-let kYelpTokenSecret: String = "QMHf7YrrXKmdOTXeowtytqRjS1c"
-
-class YelpClient : BDBOAuth1RequestOperationManager {
-    // Singleton
-    class SomeManager {
-        static let sharedInstance = YelpClient()
-    }
-    
-//    convenience override init() {
-//        var baseURL: NSURL = NSURL(string: "https://api.yelp.com/v2/")!
-//        super.init(baseURL: baseURL, consumerKey: kYelpConsumerKey, consumerSecret: kYelpConsumerSecret)
-//        var token: BDBOAuth1Credential = BDBOAuth1Credential.credentialWithToken(kYelpToken, secret: kYelpTokenSecret, expiration: nil)
+//class YelpClient: BDBOAuth1RequestOperationManager {
+//    
+//    var accessToken: String!
+//    var accessSecret: String!
+//    
+//    required init(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)!
 //    }
-}
+//    
+//    init(consumerKey key: String!, consumerSecret secret: String!, accessToken: String!, accessSecret: String!) {
+//        self.accessToken = accessToken
+//        self.accessSecret = accessSecret
+//        var baseUrl = NSURL(string: "http://api.yelp.com/v2/")
+//        super.init(baseURL: baseUrl, consumerKey: key, consumerSecret: secret);
+//        
+//        var token = BDBOAuthToken(token: accessToken, secret: accessSecret, expiration: nil)
+//        self.requestSerializer.saveAccessToken(token)
+//    }
+//    
+//    func searchWithTerm(term: String, parameters: Dictionary<String, String>? = nil, offset: Int = 0, limit: Int = 20, success: (AFHTTPRequestOperation!, AnyObject!) -> Void, failure: (AFHTTPRequestOperation!, NSError!) -> Void) -> AFHTTPRequestOperation! {
+//        var params: NSMutableDictionary = [
+//            "term": term,
+//            "offset": offset,
+//            "limit": limit
+//        ]
+//        for (key, value) in parameters! {
+//            params.setValue(value, forKey: key)
+//        }
+//        return self.GET("search", parameters: params, success: success, failure: failure)
+//    }
+//    
+//}

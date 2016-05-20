@@ -87,4 +87,27 @@ NSString * const kYelpTokenSecret = @"QMHf7YrrXKmdOTXeowtytqRjS1c";
              }];
 }
 
+
+
+- (AFHTTPRequestOperation *)searchWithParams:(NSDictionary *)params
+                                  completion:(void (^)(NSArray *businesses, NSError *error))completion {
+    
+    NSLog(@"%@", params);
+//    NSMutableDictionary *parameters = [@{@"term": "restaurants",
+//                                         @"ll" : @"37.774866,-122.394556",
+//                                         @"sort": [NSNumber numberWithInt:sortMode]}
+//                                       mutableCopy];
+
+    return [self GET:@"search"
+          parameters:params
+             success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                 
+                 NSArray *businesses = responseObject[@"businesses"];
+                 completion([YelpBusiness businessesFromJsonArray:businesses], nil);
+                 
+             } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+                 completion(nil, error);
+             }];
+}
+
 @end

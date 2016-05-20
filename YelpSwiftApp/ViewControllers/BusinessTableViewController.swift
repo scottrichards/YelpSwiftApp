@@ -11,6 +11,7 @@ import UIKit
 class BusinessTableViewController: UITableViewController {
 
     var businesses : NSArray?;
+    var userLocation: UserLocation = UserLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,5 +49,40 @@ class BusinessTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80.0
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let filterViewController:FilterViewController = segue.destinationViewController as? FilterViewController {
+            filterViewController.delegate = self
+        }
+        
+    }
+    
+    func onFiltersDone() {
+        print("reDoSearch")
+        YelpClient.sharedInstance().searchWithParams(self.getSearchParameters())
+        { (results : [AnyObject]!, error : NSError!) in
+                        print("result")
+                        self.businesses = results
+                        self.tableView.reloadData()
+                    }
+
+//        YelpClient.searchWithParams(YelpFilters.instance) { (results : [AnyObject]!, error : NSError!) in
+//            print("result")
+//            self.businesses = results
+//            self.tableView.reloadData()
+//        }
+    }
+    
+    //MARK: - Business Logic
+    
+    func getSearchParameters() -> Dictionary<String, String> {
+        var parameters = [
+            "ll": "\(userLocation.latitude),\(userLocation.longitude)"
+        ]
+        for (key, value) in YelpFilters.instance.parameters {
+            parameters[key] = value
+        }
+        return parameters
     }
 }

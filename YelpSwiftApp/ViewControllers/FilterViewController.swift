@@ -11,6 +11,7 @@ import UIKit
 class FilterViewController: UITableViewController {
 
     var model : YelpFilters?
+    var delegate: BusinessTableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,9 +154,13 @@ class FilterViewController: UITableViewController {
     @IBAction func onSearch(sender: AnyObject) {
         YelpFilters.instance.copyStateFrom(self.model!)
         self.navigationController?.popViewControllerAnimated(true)
+        self.delegate?.onFiltersDone()
     }
     
     @IBAction func onCancel(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    
 }
+
