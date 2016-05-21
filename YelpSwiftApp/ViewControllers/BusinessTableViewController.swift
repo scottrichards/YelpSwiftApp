@@ -12,10 +12,10 @@ class BusinessTableViewController: UITableViewController {
 
     var businesses : NSArray?;
     var userLocation: UserLocation = UserLocation()
+    var offset : UInt = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userLocation.requestLocation()
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
         YelpBusiness.searchWithTerm("Restaurants") { (results : [AnyObject]!, error : NSError!) in
@@ -61,26 +61,24 @@ class BusinessTableViewController: UITableViewController {
     
     func onFiltersDone() {
         print("reDoSearch")
-        YelpClient.sharedInstance().searchWithParams(self.getSearchParameters())
-        { (results : [AnyObject]!, error : NSError!) in
-                        print("result")
-                        self.businesses = results
-                        self.tableView.reloadData()
-                    }
+        YelpSwiftClient.sharedInstance.searchWithParams(self.getSearchParameters())
+//        YelpClient.sharedInstance().searchWithParams(self.getSearchParameters())
+//        { (results : [AnyObject]!, error : NSError!) in
+//                        print("result")
+//                        self.businesses = results
+//                        self.tableView.reloadData()
+//                    }
 
-//        YelpClient.searchWithParams(YelpFilters.instance) { (results : [AnyObject]!, error : NSError!) in
-//            print("result")
-//            self.businesses = results
-//            self.tableView.reloadData()
-//        }
     }
     
     //MARK: - Business Logic
     
     func getSearchParameters() -> Dictionary<String, String> {
+        let userLocation = (UIApplication.sharedApplication().delegate as! AppDelegate).userLocation
         var parameters = [
             "ll": "\(userLocation.latitude),\(userLocation.longitude)"
         ]
+        
         for (key, value) in YelpFilters.instance.parameters {
             parameters[key] = value
         }

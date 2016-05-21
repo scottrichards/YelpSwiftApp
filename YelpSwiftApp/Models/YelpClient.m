@@ -53,6 +53,19 @@ NSString * const kYelpTokenSecret = @"QMHf7YrrXKmdOTXeowtytqRjS1c";
                      completion:completion];
 }
 
+//- (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
+//                                  sortMode:(YelpSortMode)sortMode
+//                                categories:(NSArray *)categories
+//                                     deals:(BOOL)hasDeal
+//                                completion:(void (^)(NSArray *businesses, NSError *error))completion
+//    return [self searchWithTerm:term
+//                   sortMode:YelpSortModeBestMatched
+//                 categories:categories
+//                      deals:hasDeal
+//                         offset:0
+//                 completion:completion];
+//}
+
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
                                   sortMode:(YelpSortMode)sortMode
                                 categories:(NSArray *)categories
