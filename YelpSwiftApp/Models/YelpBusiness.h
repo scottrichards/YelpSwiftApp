@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YelpClient.h"
 
 @interface YelpBusiness : NSObject
 
@@ -23,13 +22,13 @@
 
 + (NSArray *)businessesFromJsonArray:(NSArray *)jsonArray;
 
-+ (void)searchWithTerm:(NSString *)term
-            completion:(void (^)(NSArray *businesses, NSError *error))completion;
-
-+ (void)searchWithTerm:(NSString *)term
-              sortMode:(YelpSortMode)sortMode
-            categories:(NSArray *)categories
-                 deals:(BOOL)hasDeal
-            completion:(void (^)(NSArray *businesses, NSError *error))completion;
+//+ (void)searchWithTerm:(NSString *)term
+//            completion:(void (^)(NSArray *businesses, NSError *error))completion;
+//
+//+ (void)searchWithTerm:(NSString *)term
+//              sortMode:(YelpSortMode)sortMode
+//            categories:(NSArray *)categories
+//                 deals:(BOOL)hasDeal
+//            completion:(void (^)(NSArray *businesses, NSError *error))completion;
 
 @end

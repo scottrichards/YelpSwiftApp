@@ -4,5 +4,5 @@
 
 #import "YelpBusiness.h"
 #import "UIImageVIew+AFNetworking.h"
-#import "YelpClient.h"
 #import "BDBOAuth1RequestSerializer.h"
+#import "BDBOAuth1RequestOperationManager.h"
