@@ -42,9 +42,35 @@ class YelpSwiftClient : BDBOAuth1RequestOperationManager
         fatalError("init(coder:) has not been implemented")
     }
     
-    func searchWithParams(params : NSDictionary) {
+    func searchWithParams(params : NSDictionary, completionHandler: (businesses : [AnyObject]?,error : NSError?) -> Void) {
         for param in params {
             print("param: \(param)")
         }
+        self.GET("search", parameters: params,
+                 success: {
+                    (operation : AFHTTPRequestOperation, result : AnyObject) in
+                    print("success")
+                    let businesses : [AnyObject] = result["businesses"] as! [AnyObject]
+                    completionHandler(businesses: YelpBusiness.businessesFromJsonArray(businesses), error: nil)
+            },
+                 
+                 failure: {
+                    (operation : AFHTTPRequestOperation?, error : NSError) in
+                    print("failure")
+                    completionHandler(businesses: nil, error: error)
+            }
+        )
+//        self GET:@"search"
+//        parameters:params
+//        success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//            
+//            NSArray *businesses = responseObject[@"businesses"];
+//            completion([YelpBusiness businessesFromJsonArray:businesses], nil);
+//            
+//        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+//            completion(nil, error);
+//        }];
+
+  //      completionHandler()
     }
 }

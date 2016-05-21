@@ -61,14 +61,12 @@ class BusinessTableViewController: UITableViewController {
     
     func onFiltersDone() {
         print("reDoSearch")
-        YelpSwiftClient.sharedInstance.searchWithParams(self.getSearchParameters())
-//        YelpClient.sharedInstance().searchWithParams(self.getSearchParameters())
-//        { (results : [AnyObject]!, error : NSError!) in
-//                        print("result")
-//                        self.businesses = results
-//                        self.tableView.reloadData()
-//                    }
-
+        YelpSwiftClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
+            (results : [AnyObject]?, error : NSError?) in
+            print("result")
+            self.businesses = results
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: - Business Logic
