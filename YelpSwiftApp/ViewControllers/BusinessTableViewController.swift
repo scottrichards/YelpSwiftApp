@@ -18,13 +18,11 @@ class BusinessTableViewController: UITableViewController {
         super.viewDidLoad()
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
-        YelpBusiness.searchWithTerm("Restaurants") { (results : [AnyObject]!, error : NSError!) in
-          print("result")
+        YelpSwiftClient.sharedInstance.searchWithTerm("Restaurants") {
+            ( results : [AnyObject]?, error : NSError?) in
             self.businesses = results
             self.tableView.reloadData()
         }
-//        YelpBusiness.searchWithTerm("Restaurants", completion: <#T##(([AnyObject]!, NSError!) -> Void)!##(([AnyObject]!, NSError!) -> Void)!##([AnyObject]!, NSError!) -> Void#>)
-//        self.tableView.registerNib(UINib(nibName:)  forCellReuseIdentifier: "BusinessCellTableViewCell")
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

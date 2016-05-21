@@ -11,6 +11,12 @@ import Foundation
 
 class YelpSwiftClient : BDBOAuth1RequestOperationManager
 {
+    enum SortOrder {
+        case BestMatched
+        case ModeDistance
+        case HighestRated
+    }
+    
     private static var _sharedInstance : YelpSwiftClient? = nil
     static var sharedInstance : YelpSwiftClient {
         get {
@@ -60,17 +66,18 @@ class YelpSwiftClient : BDBOAuth1RequestOperationManager
                     completionHandler(businesses: nil, error: error)
             }
         )
-//        self GET:@"search"
-//        parameters:params
-//        success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-//            
-//            NSArray *businesses = responseObject[@"businesses"];
-//            completion([YelpBusiness businessesFromJsonArray:businesses], nil);
-//            
-//        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-//            completion(nil, error);
-//        }];
-
-  //      completionHandler()
     }
+    
+    func searchWithTerm(term : String?, completion : (businesses:[AnyObject]?, error : NSError?) -> Void) {
+        let params : NSMutableDictionary? = ["ll":"37.774866,-122.394556"]
+        if let term = term {
+            params?.setObject(term, forKey:"term")
+        }
+        self.searchWithParams(params!, completionHandler: completion)
+    }
+    
+//    func searchWithTerm(term : String?, sortMode : SortOrder? = .BestMatched, completion : ([AnyObject]?, error : NSError?)) {
+//        
+//    }
+    
 }
