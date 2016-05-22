@@ -57,6 +57,13 @@ class BusinessTableViewController: UITableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc : DetailsController = self.storyboard!.instantiateViewControllerWithIdentifier("detailsController") as! DetailsController
+        let business = self.businesses![indexPath.row]
+        vc.business = business as? YelpBusiness
+        self.showViewController(vc as UIViewController, sender: vc)
+    }
+    
     func onFiltersDone() {
         print("reDoSearch")
         YelpClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
