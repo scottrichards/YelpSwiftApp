@@ -1,5 +1,5 @@
 //
-//  YelpSwiftClient.swift
+//  YelpClient.swift
 //  YelpSwiftApp
 //
 //  Created by Scott Richards on 5/20/16.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-class YelpSwiftClient : BDBOAuth1RequestOperationManager
+class YelpClient : BDBOAuth1RequestOperationManager
 {
     enum SortOrder {
         case BestMatched
@@ -17,13 +17,13 @@ class YelpSwiftClient : BDBOAuth1RequestOperationManager
         case HighestRated
     }
     
-    private static var _sharedInstance : YelpSwiftClient? = nil
-    static var sharedInstance : YelpSwiftClient {
+    private static var _sharedInstance : YelpClient? = nil
+    static var sharedInstance : YelpClient {
         get {
             if let _sharedInstance = _sharedInstance {
                 return _sharedInstance
             } else {
-                _sharedInstance = YelpSwiftClient()
+                _sharedInstance = YelpClient()
                 return _sharedInstance!
             }
         }
@@ -72,6 +72,10 @@ class YelpSwiftClient : BDBOAuth1RequestOperationManager
         let params : NSMutableDictionary? = ["ll":"37.774866,-122.394556"]
         if let term = term {
             params?.setObject(term, forKey:"term")
+        }
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if (appDelegate.userLocation.foundLocation == true) {
+            params?.setObject("\(appDelegate.userLocation.latitude),\(appDelegate.userLocation.longitude)", forKey: "ll")
         }
         self.searchWithParams(params!, completionHandler: completion)
     }

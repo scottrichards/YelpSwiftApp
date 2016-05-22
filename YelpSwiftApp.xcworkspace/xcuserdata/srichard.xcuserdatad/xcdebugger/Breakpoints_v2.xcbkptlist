@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-            timestampString = "485555009.841679"
+            timestampString = "485557767.640439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
             <Locations>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-            timestampString = "485555009.841679"
+            timestampString = "485557767.640439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "onFiltersDone()"
             landmarkType = "5">
          </BreakpointContent>
@@ -230,7 +230,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
@@ -243,14 +243,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "YelpSwiftApp.BusinessTableViewController.userLocation.getter : YelpSwiftApp.UserLocation"
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.914803"
+                  timestampString = "485584995.42143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -258,14 +258,14 @@
                   offsetFromSymbolStart = "35">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "YelpSwiftApp.BusinessTableViewController.userLocation.setter : YelpSwiftApp.UserLocation"
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.914983"
+                  timestampString = "485584995.421539"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -273,14 +273,14 @@
                   offsetFromSymbolStart = "65">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "YelpSwiftApp.BusinessTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; YelpSwiftApp.BusinessTableViewController"
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.915285"
+                  timestampString = "485584995.421693"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -288,14 +288,14 @@
                   offsetFromSymbolStart = "80">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "YelpSwiftApp.BusinessTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;YelpSwiftApp.BusinessTableViewController&gt;"
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.915425"
+                  timestampString = "485584995.421763"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -372,7 +372,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/UserLocation.swift"
@@ -408,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-            timestampString = "485555009.841679"
+            timestampString = "485557767.640439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "BusinessTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -424,11 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-            timestampString = "485555009.841679"
+            timestampString = "485557767.640439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "BusinessTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-            timestampString = "485555009.841679"
+            timestampString = "485557767.640439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "onFiltersDone()"
             landmarkType = "5">
             <Locations>
@@ -472,11 +472,11 @@
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.918757"
+                  timestampString = "485584995.424145"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
                   offsetFromSymbolStart = "161">
                </Location>
                <Location
@@ -487,11 +487,11 @@
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.918891"
+                  timestampString = "485584995.42425"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
                   offsetFromSymbolStart = "30">
                </Location>
             </Locations>
@@ -596,7 +596,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/YelpBusiness.m"
@@ -628,49 +628,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-            timestampString = "485555001.274813"
+            timestampString = "485557767.640439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "YelpSwiftApp.BusinessTableViewController.viewDidLoad () -&gt; ()"
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.923068"
+                  timestampString = "485584995.425087"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
                   offsetFromSymbolStart = "424">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "YelpSwiftApp.BusinessTableViewController.(viewDidLoad () -&gt; ()).(closure #1)"
                   moduleName = "YelpSwiftApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/ViewControllers/BusinessTableViewController.swift"
-                  timestampString = "485555010.92318"
+                  timestampString = "485584995.42519"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YelpSwiftApp/Models/YelpSwiftClient.swift"
+            timestampString = "485557852.065277"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "searchWithTerm(_:completion:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

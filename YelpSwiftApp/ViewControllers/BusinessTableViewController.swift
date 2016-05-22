@@ -18,7 +18,7 @@ class BusinessTableViewController: UITableViewController {
         super.viewDidLoad()
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
-        YelpSwiftClient.sharedInstance.searchWithTerm("Restaurants") {
+        YelpClient.sharedInstance.searchWithTerm("Restaurants") {
             ( results : [AnyObject]?, error : NSError?) in
             self.businesses = results
             self.tableView.reloadData()
@@ -59,7 +59,7 @@ class BusinessTableViewController: UITableViewController {
     
     func onFiltersDone() {
         print("reDoSearch")
-        YelpSwiftClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
+        YelpClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
             (results : [AnyObject]?, error : NSError?) in
             print("result")
             self.businesses = results
