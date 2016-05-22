@@ -46,16 +46,10 @@ class YelpFilters {
             name: "category_filter",
             options: [
                 Option(label: "Afghan", value: "afghani"),
-                Option(label: "African", value: "african"),
                 Option(label: "American (New)", value: "newamerican"),
                 Option(label: "American (Traditional)", value: "tradamerican"),
-                Option(label: "Arabian", value: "arabian"),
                 Option(label: "Argentine", value: "argentine"),
-                Option(label: "Armenian", value: "armenian"),
                 Option(label: "Asian Fusion", value: "asianfusion"),
-                Option(label: "Australian", value: "australian"),
-                Option(label: "Austrian", value: "austrian"),
-                Option(label: "Bangladeshi", value: "bangladeshi"),
                 Option(label: "Barbeque", value: "bbq"),
                 Option(label: "Basque", value: "basque"),
                 Option(label: "Belgian", value: "belgian"),
@@ -91,15 +85,10 @@ class YelpFilters {
                 Option(label: "French", value: "french"),
                 Option(label: "Gastropubs", value: "gastropubs"),
                 Option(label: "German", value: "german"),
-                Option(label: "Gluten-Free", value: "gluten_free"),
                 Option(label: "Greek", value: "greek"),
-                Option(label: "Halal", value: "halal"),
                 Option(label: "Hawaiian", value: "hawaiian"),
                 Option(label: "Himalayan/Nepalese", value: "himalayan"),
-                Option(label: "Hot Dogs", value: "hotdog"),
-                Option(label: "Hot Pot", value: "hotpot"),
                 Option(label: "Hungarian", value: "hungarian"),
-                Option(label: "Iberian", value: "iberian"),
                 Option(label: "Indian", value: "indpak"),
                 Option(label: "Indonesian", value: "indonesian"),
                 Option(label: "Irish", value: "irish"),
@@ -107,44 +96,24 @@ class YelpFilters {
                 Option(label: "Japanese", value: "japanese"),
                 Option(label: "Korean", value: "korean"),
                 Option(label: "Kosher", value: "kosher"),
-                Option(label: "Laotian", value: "laotian"),
                 Option(label: "Latin American", value: "latin"),
                 Option(label: "Live/Raw Food", value: "raw_food"),
                 Option(label: "Malaysian", value: "malaysian"),
                 Option(label: "Mediterranean", value: "mediterranean"),
                 Option(label: "Mexican", value: "mexican"),
-                Option(label: "Middle Eastern", value: "mideastern"),
-                Option(label: "Modern European", value: "modern_european"),
-                Option(label: "Mongolian", value: "mongolian"),
                 Option(label: "Moroccan", value: "moroccan"),
-                Option(label: "Pakistani", value: "pakistani"),
-                Option(label: "Persian/Iranian", value: "persian"),
                 Option(label: "Peruvian", value: "peruvian"),
                 Option(label: "Pizza", value: "pizza"),
-                Option(label: "Polish", value: "polish"),
-                Option(label: "Portuguese", value: "portuguese"),
-                Option(label: "Russian", value: "russian"),
                 Option(label: "Salad", value: "salad"),
                 Option(label: "Sandwiches", value: "sandwiches"),
-                Option(label: "Scandinavian", value: "scandinavian"),
-                Option(label: "Scottish", value: "scottish"),
                 Option(label: "Seafood", value: "seafood"),
-                Option(label: "Singaporean", value: "singaporean"),
-                Option(label: "Slovakian", value: "slovakian"),
                 Option(label: "Soul Food", value: "soulfood"),
-                Option(label: "Soup", value: "soup"),
                 Option(label: "Southern", value: "southern"),
                 Option(label: "Spanish", value: "spanish"),
                 Option(label: "Steakhouses", value: "steak"),
-                Option(label: "Sushi Bars", value: "sushi"),
-                Option(label: "Taiwanese", value: "taiwanese"),
-                Option(label: "Tapas Bars", value: "tapas"),
-                Option(label: "Tapas/Small Plates", value: "tapasmallplates"),
-                Option(label: "Tex-Mex", value: "tex-mex"),
+                Option(label: "Sushi", value: "sushi"),
                 Option(label: "Thai", value: "thai"),
                 Option(label: "Turkish", value: "turkish"),
-                Option(label: "Ukrainian", value: "ukrainian"),
-                Option(label: "Uzbek", value: "uzbek"),
                 Option(label: "Vegan", value: "vegan"),
                 Option(label: "Vegetarian", value: "vegetarian"),
                 Option(label: "Vietnamese", value: "vietnamese")
@@ -161,8 +130,8 @@ class YelpFilters {
     }
 
     func copyStateFrom(instance: YelpFilters) {
-        for var f = 0; f < self.filters.count; f++ {
-            for var o = 0; o < self.filters[f].options.count; o++ {
+        for f in 0 ..< self.filters.count {
+            for o in 0 ..< self.filters[f].options.count {
                 self.filters[f].options[o].selected = instance.filters[f].options[o].selected
             }
         }
@@ -227,7 +196,7 @@ class Filter {
 
     var selectedIndex: Int {
         get {
-            for var i = 0; i < self.options.count; i++ {
+            for i in 0 ..< self.options.count {
                 if self.options[i].selected {
                     return i
                 }

@@ -68,24 +68,6 @@
     return result;
 }
 
-//+ (void)searchWithTerm:(NSString *)term
-//            completion:(void (^)(NSArray *businesses, NSError *error))completion {
-//    
-//    [[YelpClient sharedInstance] searchWithTerm:term completion:completion];
-//}
-//
-//+ (void)searchWithTerm:(NSString *)term
-//              sortMode:(YelpSortMode)sortMode
-//            categories:(NSArray *)categories
-//                 deals:(BOOL)hasDeal
-//            completion:(void (^)(NSArray *businesses, NSError *error))completion {
-//    
-//    [[YelpClient sharedInstance] searchWithTerm:term
-//                                       sortMode:sortMode
-//                                     categories:categories
-//                                          deals:hasDeal
-//                                     completion:completion];
-//}
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"\n\tName:%@\n\tAddress:%@\n\tImageUrl:%@\n\tCategories:%@\n\tDistance:%@\n\tRatingImageUrl:%@\n\tReviewCount:%@\n\t",
