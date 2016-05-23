@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface YelpBusiness : NSObject
 
@@ -17,18 +18,12 @@
 @property (strong, nonatomic) NSString *distance;
 @property (strong, nonatomic) NSURL *ratingImageUrl;
 @property (strong, nonatomic) NSNumber *reviewCount;
+@property (strong, nonatomic) CLLocation *location;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 + (NSArray *)businessesFromJsonArray:(NSArray *)jsonArray;
 
-//+ (void)searchWithTerm:(NSString *)term
-//            completion:(void (^)(NSArray *businesses, NSError *error))completion;
-//
-//+ (void)searchWithTerm:(NSString *)term
-//              sortMode:(YelpSortMode)sortMode
-//            categories:(NSArray *)categories
-//                 deals:(BOOL)hasDeal
-//            completion:(void (^)(NSArray *businesses, NSError *error))completion;
+
 
 @end

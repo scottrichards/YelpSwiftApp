@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Yelp-->
@@ -89,15 +90,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="173 Throckmorton Ave, Mill Valley, CA 94941" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43t-wK-2lx">
-                                <rect key="frame" x="10" y="245" width="299" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="iRB-D0-glY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHE-DS-vCQ">
                                 <rect key="frame" x="274" y="101" width="35" height="21"/>
                                 <constraints>
@@ -116,15 +108,33 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1Px-Bv-QBl">
+                                <rect key="frame" x="6" y="145" width="307" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="kdA-Sp-edV"/>
+                                </constraints>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="173 Throckmorton Ave, Mill Valley, CA 94941" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43t-wK-2lx">
+                                <rect key="frame" x="10" y="281" width="299" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="iRB-D0-glY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WHE-DS-vCQ" firstAttribute="leading" secondItem="WtQ-O6-LZp" secondAttribute="trailing" constant="8" id="4AJ-T5-r6i"/>
                             <constraint firstItem="L3R-sd-f2h" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leading" constant="10" id="8iw-VY-yOd"/>
+                            <constraint firstItem="1Px-Bv-QBl" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leadingMargin" constant="-10" id="9PE-jg-DD9"/>
                             <constraint firstItem="L3R-sd-f2h" firstAttribute="top" secondItem="qgS-eK-h2O" secondAttribute="bottom" constant="7" id="9aX-QW-Ew7"/>
+                            <constraint firstItem="1Px-Bv-QBl" firstAttribute="top" secondItem="vRK-R3-mdm" secondAttribute="bottom" constant="2" id="9lI-P4-r9E"/>
                             <constraint firstAttribute="trailing" secondItem="vRK-R3-mdm" secondAttribute="trailing" constant="11" id="BO5-wc-93A"/>
                             <constraint firstItem="vRK-R3-mdm" firstAttribute="top" secondItem="L3R-sd-f2h" secondAttribute="bottom" constant="2" id="Ege-mX-23u"/>
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="leading" secondItem="L3R-sd-f2h" secondAttribute="trailing" constant="8" id="Elw-Jo-hSn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Px-Bv-QBl" secondAttribute="trailing" constant="-9" id="JtJ-kg-ygB"/>
                             <constraint firstItem="vRK-R3-mdm" firstAttribute="top" secondItem="WHE-DS-vCQ" secondAttribute="bottom" id="K3d-Z9-Pee"/>
                             <constraint firstItem="L3R-sd-f2h" firstAttribute="leading" secondItem="vRK-R3-mdm" secondAttribute="leading" id="LIM-hx-yKx"/>
                             <constraint firstItem="NPm-0N-YxZ" firstAttribute="top" secondItem="xEl-52-cRC" secondAttribute="bottom" constant="12" id="MiQ-uf-fB3"/>
@@ -133,7 +143,7 @@
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="baseline" secondItem="WHE-DS-vCQ" secondAttribute="baseline" id="WDW-M9-ckl"/>
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="firstBaseline" secondItem="WHE-DS-vCQ" secondAttribute="firstBaseline" id="Y3W-Pv-KuR"/>
                             <constraint firstItem="vRK-R3-mdm" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leading" constant="10" id="YQi-Hh-HcD"/>
-                            <constraint firstItem="UCI-6n-HWE" firstAttribute="top" secondItem="43t-wK-2lx" secondAttribute="bottom" constant="302" id="boM-R5-CWF"/>
+                            <constraint firstItem="UCI-6n-HWE" firstAttribute="top" secondItem="43t-wK-2lx" secondAttribute="bottom" constant="266" id="boM-R5-CWF"/>
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="leading" secondItem="L3R-sd-f2h" secondAttribute="trailing" constant="8" symbolic="YES" id="eOM-hZ-xEF"/>
                             <constraint firstAttribute="trailing" secondItem="NPm-0N-YxZ" secondAttribute="trailing" constant="11" id="fe6-S2-YjQ"/>
                             <constraint firstItem="qgS-eK-h2O" firstAttribute="top" secondItem="xEl-52-cRC" secondAttribute="bottom" constant="8" id="fqf-FY-QE7"/>
@@ -167,6 +177,7 @@
                         <outlet property="businessName" destination="qgS-eK-h2O" id="P3y-Qj-Zb9"/>
                         <outlet property="category" destination="vRK-R3-mdm" id="Kis-kR-9gA"/>
                         <outlet property="distance" destination="NPm-0N-YxZ" id="km1-lz-tcF"/>
+                        <outlet property="mapView" destination="1Px-Bv-QBl" id="nnV-Kz-dGH"/>
                         <outlet property="priceLevel" destination="WHE-DS-vCQ" id="sft-40-UOf"/>
                         <outlet property="ratingImage" destination="L3R-sd-f2h" id="zJ4-mG-gAB"/>
                         <outlet property="reviewCount" destination="WtQ-O6-LZp" id="teX-MW-JVe"/>

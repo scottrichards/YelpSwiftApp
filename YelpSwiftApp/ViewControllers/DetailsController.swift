@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailsController: UIViewController {
     @IBOutlet var businessName: UILabel!
@@ -16,6 +17,7 @@ class DetailsController: UIViewController {
     @IBOutlet var priceLevel: UILabel!
     @IBOutlet var category: UILabel!
     @IBOutlet var address: UILabel!
+    @IBOutlet var mapView: MKMapView!
     var business : YelpBusiness?
     
     @IBAction func onBackToSearch(sender: AnyObject) {
@@ -33,5 +35,17 @@ class DetailsController: UIViewController {
         category.text = business?.categories
         let reviewCount = (business?.reviewCount)!
         self.reviewCount.text =  NSString(format: "%ld Reviews",reviewCount.integerValue) as String
+        
+        // set the region to display, this also sets a correct zoom level
+        // set starting center location in San Francisco
+        let centerLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
+        goToLocation(centerLocation)
+    }
+    
+    // center the map around the specified location
+    func goToLocation(location: CLLocation) {
+        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let region = MKCoordinateRegionMake(location.coordinate, span)
+        mapView.setRegion(region, animated: false)
     }
 }

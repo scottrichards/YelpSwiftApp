@@ -32,6 +32,13 @@
                 }
                 [address appendString:neighborhoods[0]];
             }
+            
+            NSDictionary *coordinate = locationDictionary[@"coordinate"];
+            if (coordinate) {
+                NSNumber *latitude = coordinate[@"latititude"];
+                NSNumber *longitude = coordinate[@"longitude"];
+                self.location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+            }
         }
         _address = address;
         
@@ -69,16 +76,16 @@
 }
 
 
-- (NSString *)description {
-    return [NSString stringWithFormat:@"\n\tName:%@\n\tAddress:%@\n\tImageUrl:%@\n\tCategories:%@\n\tDistance:%@\n\tRatingImageUrl:%@\n\tReviewCount:%@\n\t",
-            self.name,
-            self.address,
-            self.imageUrl,
-            self.categories,
-            self.distance,
-            self.ratingImageUrl,
-            self.reviewCount];
-}
+//- (NSString *)description {
+//    return [NSString stringWithFormat:@"\n\tName:%@\n\tAddress:%@\n\tImageUrl:%@\n\tCategories:%@\n\tDistance:%@\n\tRatingImageUrl:%@\n\tReviewCount:%@\n\t",
+//            self.name,
+//            self.address,
+//            self.imageUrl,
+//            self.categories,
+//            self.distance,
+//            self.ratingImageUrl,
+//            self.reviewCount];
+//}
 
 
 
