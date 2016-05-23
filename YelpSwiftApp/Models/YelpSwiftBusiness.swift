@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class YelpSwiftBusiness: NSObject {
     var name : String?
@@ -22,11 +23,12 @@ class YelpSwiftBusiness: NSObject {
         super.init()
         name = dict["name"] as? String
         
-        
+        // image for the restaurant
         if let imageUrlString = dict["image_url"] as? String {
             imageUrl = NSURL(string: imageUrlString)
         }
         
+        // set address and area e.g. 234 Townsend, SOMA
         address = ""
         if let locationDictionary = dict["location"] {
             if let addressArray = locationDictionary["address"] as? NSArray {
@@ -50,11 +52,17 @@ class YelpSwiftBusiness: NSObject {
             
         }
         
+        // set categories e.g. Japanese, Fusion, Asian
         categories = ""
         if let categoriesArray : NSArray = dict["categories"]  as? NSArray {
             for x in 0 ..< categoriesArray.count {
-                if let categoryStr : String = categoriesArray[x] as? String {
-                    categories += categoryStr
+                if let category = categoriesArray[x] as? NSArray {
+                    if let categoryStr = category[0] as? String {
+                        categories += categoryStr
+                    }
+                }
+                if (x + 1 < categoriesArray.count ) {
+                    categories += ", "
                 }
             }
         }

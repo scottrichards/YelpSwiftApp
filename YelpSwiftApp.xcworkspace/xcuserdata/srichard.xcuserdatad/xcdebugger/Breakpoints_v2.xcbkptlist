@@ -600,11 +600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/YelpBusiness.m"
-            timestampString = "485629675.144485"
+            timestampString = "485658559.797549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "+businessesFromJsonArray:"
             landmarkType = "5">
          </BreakpointContent>
@@ -724,7 +724,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/YelpBusiness.m"
@@ -740,15 +740,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/YelpBusiness.m"
-            timestampString = "485629675.144485"
+            timestampString = "485658559.797549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "+businessesFromJsonArray:"
             landmarkType = "5">
          </BreakpointContent>
@@ -756,17 +756,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/YelpSwiftBusiness.swift"
-            timestampString = "485657184.38077"
+            timestampString = "485658982.450946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "init(dict:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YelpSwiftApp.YelpSwiftBusiness.init (dict : __ObjC.NSDictionary) -&gt; YelpSwiftApp.YelpSwiftBusiness"
+                  moduleName = "YelpSwiftApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/Models/YelpSwiftBusiness.swift"
+                  timestampString = "485659304.285848"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "5563">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YelpSwiftApp.YelpSwiftBusiness.init (dict : __ObjC.NSDictionary) -&gt; YelpSwiftApp.YelpSwiftBusiness"
+                  moduleName = "YelpSwiftApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/srichard/Code/iOS/YelpSwiftApp/YelpSwiftApp/Models/YelpSwiftBusiness.swift"
+                  timestampString = "485659304.285957"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "5859">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -776,11 +808,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YelpSwiftApp/Models/YelpSwiftBusiness.swift"
-            timestampString = "485658457.57969"
+            timestampString = "485659398.882112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "businessesFromJsonArray(_:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -20,7 +20,7 @@ class BusinessCellTableViewCell: UITableViewCell {
     @IBOutlet var address: UILabel!
     @IBOutlet var typeLabel: UILabel!
     
-    var business : YelpBusiness? {
+    var business : YelpSwiftBusiness? {
         didSet {
             let imageUrl = self.business?.imageUrl
             self.thumbImageView.setImageWithURL(imageUrl!)
