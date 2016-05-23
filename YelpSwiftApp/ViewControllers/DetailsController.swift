@@ -38,13 +38,14 @@ class DetailsController: UIViewController {
         
         // set the region to display, this also sets a correct zoom level
         // set starting center location in San Francisco
-        let centerLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
-        goToLocation(centerLocation)
+        if let centerLocation = business?.location {
+            goToLocation(centerLocation)
+        }
     }
     
     // center the map around the specified location
     func goToLocation(location: CLLocation) {
-        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegionMake(location.coordinate, span)
         mapView.setRegion(region, animated: false)
     }
