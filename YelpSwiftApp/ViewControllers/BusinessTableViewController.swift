@@ -39,7 +39,7 @@ class BusinessTableViewController: UITableViewController {
         let row = indexPath.row
         if let dequeuedCell : BusinessCellTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as? BusinessCellTableViewCell {
             if (businesses?.count > row) {
-                dequeuedCell.business = businesses![row] as? YelpSwiftBusiness
+                dequeuedCell.business = businesses![row] as? YelpBusiness
             }
             cell = dequeuedCell
         }
@@ -60,7 +60,7 @@ class BusinessTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc : DetailsController = self.storyboard!.instantiateViewControllerWithIdentifier("detailsController") as! DetailsController
         let business = self.businesses![indexPath.row]
-        vc.business = business as? YelpSwiftBusiness
+        vc.business = business as? YelpBusiness
         self.showViewController(vc as UIViewController, sender: vc)
     }
     

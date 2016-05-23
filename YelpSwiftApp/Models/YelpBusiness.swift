@@ -1,5 +1,5 @@
 //
-//  YelpSwiftBusiness.swift
+//  YelpBusiness.swift
 //  YelpSwiftApp
 //
 //  Created by Scott Richards on 5/22/16.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class YelpSwiftBusiness: NSObject {
+class YelpBusiness: NSObject {
     var name : String?
     var address : String = ""
     var imageUrl : NSURL?
@@ -83,7 +83,7 @@ class YelpSwiftBusiness: NSObject {
         let result = NSMutableArray()
         for json in jsonArray  {
             if let jsonDictionary = json as? NSDictionary {
-                let business = YelpSwiftBusiness(dict: jsonDictionary)
+                let business = YelpBusiness(dict: jsonDictionary)
                 result.addObject(business)
             }
         }

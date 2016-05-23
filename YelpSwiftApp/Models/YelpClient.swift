@@ -57,7 +57,7 @@ class YelpClient : BDBOAuth1RequestOperationManager
                     (operation : AFHTTPRequestOperation, result : AnyObject) in
                     print("success")
                     let businesses : [AnyObject] = result["businesses"] as! [AnyObject]
-                    completionHandler(businesses: YelpSwiftBusiness.businessesFromJsonArray(businesses) as [AnyObject], error: nil)
+                    completionHandler(businesses: YelpBusiness.businessesFromJsonArray(businesses) as [AnyObject], error: nil)
             },
                  
                  failure: {

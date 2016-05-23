@@ -18,7 +18,7 @@ class DetailsController: UIViewController {
     @IBOutlet var category: UILabel!
     @IBOutlet var address: UILabel!
     @IBOutlet var mapView: MKMapView!
-    var business : YelpSwiftBusiness?
+    var business : YelpBusiness?
     
     @IBAction func onBackToSearch(sender: AnyObject) {
           self.navigationController?.popViewControllerAnimated(true)
