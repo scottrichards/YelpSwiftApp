@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class DetailsController: UIViewController {
+class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var businessName: UILabel!
     @IBOutlet var distance: UILabel!
     @IBOutlet var ratingImage: UIImageView!
@@ -18,7 +18,14 @@ class DetailsController: UIViewController {
     @IBOutlet var category: UILabel!
     @IBOutlet var address: UILabel!
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var tableView: UITableView!
+    
     var business : YelpBusiness?
+    
+    enum TableRowType : Int {
+        case map = 0
+        case phone = 1
+    }
     
     @IBAction func onBackToSearch(sender: AnyObject) {
           self.navigationController?.popViewControllerAnimated(true)
@@ -49,4 +56,28 @@ class DetailsController: UIViewController {
         let region = MKCoordinateRegionMake(location.coordinate, span)
         mapView.setRegion(region, animated: false)
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell?
+        switch indexPath.row {
+        case TableRowType.map.rawValue:
+            let identifier = "MapCell"
+            if let dequeuedCell : MapCell = tableView.dequeueReusableCellWithIdentifier(identifier) as? MapCell
+            {
+                dequeuedCell.addressLabel.text = business?.address
+                cell = dequeuedCell
+            }
+        default:
+            let identifier = "PhoneCell"
+            if let dequeuedCell = tableView.dequeueReusableCellWithIdentifier(identifier) {
+                cell = dequeuedCell
+            }
+        }
+        return cell!
+    }
+    
 }

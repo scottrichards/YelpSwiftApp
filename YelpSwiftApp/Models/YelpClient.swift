@@ -48,7 +48,7 @@ class YelpClient : BDBOAuth1RequestOperationManager
         fatalError("init(coder:) has not been implemented")
     }
     
-    func searchWithParams(params : NSDictionary, completionHandler: (businesses : [AnyObject]?,error : NSError?) -> Void) {
+    func searchWithParams(params : NSDictionary, completionHandler: (businesses : [YelpBusiness]?,error : NSError?) -> Void) {
         for param in params {
             print("param: \(param)")
         }
@@ -57,7 +57,7 @@ class YelpClient : BDBOAuth1RequestOperationManager
                     (operation : AFHTTPRequestOperation, result : AnyObject) in
                     print("success")
                     let businesses : [AnyObject] = result["businesses"] as! [AnyObject]
-                    completionHandler(businesses: YelpBusiness.businessesFromJsonArray(businesses) as [AnyObject], error: nil)
+                    completionHandler(businesses: YelpBusiness.businessesFromJsonArray(businesses) as [YelpBusiness], error: nil)
             },
                  
                  failure: {
@@ -68,7 +68,7 @@ class YelpClient : BDBOAuth1RequestOperationManager
         )
     }
     
-    func searchWithTerm(term : String?, completion : (businesses:[AnyObject]?, error : NSError?) -> Void) {
+    func searchWithTerm(term : String?, completion : (businesses:[YelpBusiness]?, error : NSError?) -> Void) {
         let params : NSMutableDictionary? = ["ll":"37.774866,-122.394556"]
         if let term = term {
             params?.setObject(term, forKey:"term")

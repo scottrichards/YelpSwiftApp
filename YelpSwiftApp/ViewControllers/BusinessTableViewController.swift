@@ -10,7 +10,7 @@ import UIKit
 
 class BusinessTableViewController: UITableViewController {
 
-    var businesses : NSArray?;
+    var businesses : [YelpBusiness]?;
     var userLocation: UserLocation = UserLocation()
     var offset : UInt = 0
     
@@ -19,7 +19,7 @@ class BusinessTableViewController: UITableViewController {
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
         YelpClient.sharedInstance.searchWithTerm("Restaurants") {
-            ( results : [AnyObject]?, error : NSError?) in
+            ( results : [YelpBusiness]?, error : NSError?) in
             self.businesses = results
             self.tableView.reloadData()
         }
@@ -39,7 +39,7 @@ class BusinessTableViewController: UITableViewController {
         let row = indexPath.row
         if let dequeuedCell : BusinessCellTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as? BusinessCellTableViewCell {
             if (businesses?.count > row) {
-                dequeuedCell.business = businesses![row] as? YelpBusiness
+                dequeuedCell.business = businesses![row]
             }
             cell = dequeuedCell
         }
@@ -60,14 +60,14 @@ class BusinessTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc : DetailsController = self.storyboard!.instantiateViewControllerWithIdentifier("detailsController") as! DetailsController
         let business = self.businesses![indexPath.row]
-        vc.business = business as? YelpBusiness
+        vc.business = business 
         self.showViewController(vc as UIViewController, sender: vc)
     }
     
     func onFiltersDone() {
         print("reDoSearch")
         YelpClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
-            (results : [AnyObject]?, error : NSError?) in
+            (results : [YelpBusiness]?, error : NSError?) in
             print("result")
             self.businesses = results
             self.tableView.reloadData()

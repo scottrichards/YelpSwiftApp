@@ -18,6 +18,7 @@ class YelpBusiness: NSObject {
     var ratingImageUrl : NSURL?
     var reviewCount : NSNumber?
     var location : CLLocation?
+    var phoneNumber : String?
     
     init (dict : NSDictionary) {
         super.init()
@@ -76,15 +77,16 @@ class YelpBusiness: NSObject {
             ratingImageUrl = NSURL(string: ratingImageUrlString)
         }
         
+        
         reviewCount = dict["review_count"] as? NSNumber
     }
 
-    class func businessesFromJsonArray(jsonArray : NSArray) -> NSArray {
-        let result = NSMutableArray()
+    class func businessesFromJsonArray(jsonArray : NSArray) -> [YelpBusiness] {
+        var result = [YelpBusiness]()
         for json in jsonArray  {
             if let jsonDictionary = json as? NSDictionary {
                 let business = YelpBusiness(dict: jsonDictionary)
-                result.addObject(business)
+                result.append(business)
             }
         }
         return result
