@@ -237,6 +237,39 @@
             </objects>
             <point key="canvasLocation" x="2291" y="1169"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="GoK-dH-Eh0">
+            <objects>
+                <viewController storyboardIdentifier="mapViewId" id="rej-kh-SHQ" customClass="MapViewController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ki0-H2-XUL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Npp-r5-83X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SCy-fK-30r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PEa-8u-9ek">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PEa-8u-9ek" firstAttribute="top" secondItem="SCy-fK-30r" secondAttribute="top" id="3R9-BM-AkL"/>
+                            <constraint firstItem="PEa-8u-9ek" firstAttribute="leading" secondItem="SCy-fK-30r" secondAttribute="leading" id="Ndu-iO-3jY"/>
+                            <constraint firstAttribute="trailing" secondItem="PEa-8u-9ek" secondAttribute="trailing" id="WTj-9y-666"/>
+                            <constraint firstItem="Npp-r5-83X" firstAttribute="top" secondItem="PEa-8u-9ek" secondAttribute="bottom" id="vXm-uW-jjr"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="PEa-8u-9ek" id="2pa-Fe-pQs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63w-L6-sdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2727" y="1169"/>
+        </scene>
         <!--Filter-->
         <scene sceneID="VdW-pb-QXP">
             <objects>

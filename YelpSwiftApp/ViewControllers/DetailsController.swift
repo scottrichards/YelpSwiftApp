@@ -84,7 +84,11 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         switch indexPath.row {
         case TableRowType.map.rawValue:
             if let centerLocation = business?.location {
-                goToLocation(centerLocation)
+                if let mapView : MapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mapViewId") as? MapViewController
+                {
+                    mapView.location = centerLocation
+                    self.navigationController?.pushViewController(mapView, animated: true)
+                }
             }
         default:
             if let phoneNumber = business?.phoneNumber {
