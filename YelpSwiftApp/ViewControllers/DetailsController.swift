@@ -38,7 +38,6 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         businessName.text = business?.name
         distance.text = business?.distance
         ratingImage.setImageWithURL((business?.ratingImageUrl!)!)
-        address.text = business?.address
         category.text = business?.categories
         let reviewCount = (business?.reviewCount)!
         self.reviewCount.text =  NSString(format: "%ld Reviews",reviewCount.integerValue) as String
@@ -73,11 +72,35 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
         default:
             let identifier = "PhoneCell"
-            if let dequeuedCell = tableView.dequeueReusableCellWithIdentifier(identifier) {
+            if let dequeuedCell : PhoneCell = tableView.dequeueReusableCellWithIdentifier(identifier) as? PhoneCell {
+                dequeuedCell.phoneLabel.text = business?.phoneNumber
                 cell = dequeuedCell
             }
         }
         return cell!
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case TableRowType.map.rawValue:
+            if let centerLocation = business?.location {
+                goToLocation(centerLocation)
+            }
+        default:
+            if let phoneNumber = business?.phoneNumber {
+                dialPhone(phoneNumber)
+            }
+        }
+
+    }
+    
+    func dialPhone(phone: String) {
+        if let url = NSURL(string: "tel://\(phone)") {
+            if UIApplication.sharedApplication().canOpenURL(url) {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+    }
+    
     
 }

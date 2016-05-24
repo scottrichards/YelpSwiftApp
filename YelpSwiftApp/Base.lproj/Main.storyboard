@@ -90,15 +90,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="173 Throckmorton Ave, Mill Valley, CA 94941" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43t-wK-2lx">
-                                <rect key="frame" x="10" y="281" width="299" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="iRB-D0-glY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHE-DS-vCQ">
                                 <rect key="frame" x="274" y="101" width="35" height="21"/>
                                 <constraints>
@@ -123,15 +114,19 @@
                                     <constraint firstAttribute="height" constant="128" id="kdA-Sp-edV"/>
                                 </constraints>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yie-wI-4eT">
-                                <rect key="frame" x="8" y="310" width="303" height="185"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="yie-wI-4eT">
+                                <rect key="frame" x="8" y="281" width="304" height="117"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="117" id="AYj-xg-Q1E"/>
+                                </constraints>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapCell" id="PCe-CU-WGf" customClass="MapCell" customModule="YelpSwiftApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="303" height="44"/>
+                                        <rect key="frame" x="0.0" y="1" width="304" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PCe-CU-WGf" id="ucd-6H-Pd4">
-                                            <rect key="frame" x="0.0" y="0.0" width="270" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="271" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Map" translatesAutoresizingMaskIntoConstraints="NO" id="b1G-bl-nb0">
@@ -150,10 +145,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhoneCell" id="60T-XU-EX0" customClass="PhoneCell" customModule="YelpSwiftApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="303" height="44"/>
+                                        <rect key="frame" x="0.0" y="45" width="304" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60T-XU-EX0" id="rsd-GM-DNY">
-                                            <rect key="frame" x="0.0" y="0.0" width="270" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="271" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Call" translatesAutoresizingMaskIntoConstraints="NO" id="c28-VD-tsy">
@@ -194,20 +189,20 @@
                             <constraint firstItem="L3R-sd-f2h" firstAttribute="leading" secondItem="vRK-R3-mdm" secondAttribute="leading" id="LIM-hx-yKx"/>
                             <constraint firstItem="NPm-0N-YxZ" firstAttribute="top" secondItem="xEl-52-cRC" secondAttribute="bottom" constant="12" id="MiQ-uf-fB3"/>
                             <constraint firstItem="NPm-0N-YxZ" firstAttribute="leading" secondItem="qgS-eK-h2O" secondAttribute="trailing" constant="2" id="Mie-oc-8Jv"/>
-                            <constraint firstItem="vRK-R3-mdm" firstAttribute="trailing" secondItem="43t-wK-2lx" secondAttribute="trailing" id="Nhk-zD-UVs"/>
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="baseline" secondItem="WHE-DS-vCQ" secondAttribute="baseline" id="WDW-M9-ckl"/>
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="firstBaseline" secondItem="WHE-DS-vCQ" secondAttribute="firstBaseline" id="Y3W-Pv-KuR"/>
                             <constraint firstItem="vRK-R3-mdm" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leading" constant="10" id="YQi-Hh-HcD"/>
                             <constraint firstItem="WtQ-O6-LZp" firstAttribute="leading" secondItem="L3R-sd-f2h" secondAttribute="trailing" constant="8" symbolic="YES" id="eOM-hZ-xEF"/>
                             <constraint firstAttribute="trailing" secondItem="NPm-0N-YxZ" secondAttribute="trailing" constant="11" id="fe6-S2-YjQ"/>
-                            <constraint firstItem="43t-wK-2lx" firstAttribute="top" secondItem="1Px-Bv-QBl" secondAttribute="bottom" constant="8" id="fog-WR-ZOL"/>
                             <constraint firstItem="qgS-eK-h2O" firstAttribute="top" secondItem="xEl-52-cRC" secondAttribute="bottom" constant="8" id="fqf-FY-QE7"/>
+                            <constraint firstItem="yie-wI-4eT" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leading" constant="8" id="g7m-kC-hb2"/>
+                            <constraint firstItem="yie-wI-4eT" firstAttribute="top" secondItem="1Px-Bv-QBl" secondAttribute="bottom" constant="8" id="gxe-sY-t9A"/>
                             <constraint firstAttribute="trailing" secondItem="WHE-DS-vCQ" secondAttribute="trailing" constant="11" id="nQS-eZ-kqh"/>
                             <constraint firstItem="WHE-DS-vCQ" firstAttribute="leading" secondItem="WtQ-O6-LZp" secondAttribute="trailing" constant="8" id="oYj-U9-ITv"/>
                             <constraint firstItem="WHE-DS-vCQ" firstAttribute="trailing" secondItem="vRK-R3-mdm" secondAttribute="trailing" id="u9c-fU-1CG"/>
+                            <constraint firstAttribute="trailing" secondItem="yie-wI-4eT" secondAttribute="trailing" constant="8" id="uPa-gM-i9O"/>
                             <constraint firstItem="L3R-sd-f2h" firstAttribute="centerY" secondItem="WtQ-O6-LZp" secondAttribute="centerY" id="ula-Xr-I0T"/>
                             <constraint firstItem="qgS-eK-h2O" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leading" constant="10" id="vxR-a0-TGB"/>
-                            <constraint firstItem="vRK-R3-mdm" firstAttribute="leading" secondItem="43t-wK-2lx" secondAttribute="leading" id="wdY-ns-FIi"/>
                             <constraint firstItem="WHE-DS-vCQ" firstAttribute="leading" secondItem="WtQ-O6-LZp" secondAttribute="trailing" constant="8" symbolic="YES" id="wxN-jl-c8m"/>
                             <constraint firstItem="vRK-R3-mdm" firstAttribute="centerX" secondItem="zKP-Hk-o37" secondAttribute="centerX" id="z9B-D2-cZq"/>
                             <constraint firstItem="qgS-eK-h2O" firstAttribute="leading" secondItem="zKP-Hk-o37" secondAttribute="leading" constant="10" id="zAF-Sa-sxS"/>
@@ -228,7 +223,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="address" destination="43t-wK-2lx" id="vkB-D2-gwd"/>
                         <outlet property="businessName" destination="qgS-eK-h2O" id="P3y-Qj-Zb9"/>
                         <outlet property="category" destination="vRK-R3-mdm" id="Kis-kR-9gA"/>
                         <outlet property="distance" destination="NPm-0N-YxZ" id="km1-lz-tcF"/>

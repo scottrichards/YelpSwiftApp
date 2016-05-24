@@ -29,6 +29,10 @@ class YelpBusiness: NSObject {
             imageUrl = NSURL(string: imageUrlString)
         }
         
+        if let displayPhone = dict["display_phone"] as? String {
+            phoneNumber = displayPhone
+        }
+        
         // set address and area e.g. 234 Townsend, SOMA
         address = ""
         if let locationDictionary = dict["location"] {
