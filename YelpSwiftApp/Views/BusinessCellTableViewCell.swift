@@ -22,12 +22,18 @@ class BusinessCellTableViewCell: UITableViewCell {
     
     var business : YelpBusiness? {
         didSet {
-            let imageUrl = self.business?.imageUrl
-            self.thumbImageView.setImageWithURL(imageUrl!)
+            if let imageUrl = self.business?.imageUrl {
+                self.thumbImageView.setImageWithURL(imageUrl)
+            } else {
+                self.thumbImageView.image = nil
+            }
             self.nameLabel.text = business?.name
-            let reviewCount = (business?.reviewCount)!
-            self.ratingImage.setImageWithURL((self.business?.ratingImageUrl!)!)
-            self.reviewCount.text = NSString(format: "%ld Reviews",reviewCount.integerValue) as String
+            if let ratingImageUrl = self.business?.ratingImageUrl {
+                self.ratingImage.setImageWithURL(ratingImageUrl)
+            }
+            if let reviewCount = business?.reviewCount {
+                self.reviewCount.text = NSString(format: "%ld Reviews",reviewCount.integerValue) as String
+            }
             self.address.text = business?.address
             self.typeLabel.text = business?.categories
             self.distanceLabel.text = business?.distance

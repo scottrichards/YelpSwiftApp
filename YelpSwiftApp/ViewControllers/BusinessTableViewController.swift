@@ -8,27 +8,47 @@
 
 import UIKit
 
-class BusinessTableViewController: UITableViewController {
+class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
     var loadingMoreView:InfiniteScrollActivityView?
     var businesses : [YelpBusiness]?;
     var userLocation: UserLocation = UserLocation()
     var offset : UInt = 0
     var limit : UInt = 10
     var isLoadingData : Bool = false
-    var searchTerm : String = "Restaurants"
+    var searchTerm : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
+    
+        // create the search bar programatically since you won't be
+        // able to drag one onto the navigation bar
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.delegate = self
+        
+        // the UIViewController comes with a navigationItem property
+        // this will automatically be initialized for you if when the
+        // view controller is added to a navigation controller's stack
+        // you just need to set the titleView to be the search bar
+        navigationItem.titleView = searchBar
+        
+        
         isLoadingData = true
+        
         // Set up Infinite Scroll loading indicator
         let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
-        loadingMoreView!.startAnimating()
-        
         tableView.addSubview(loadingMoreView!)
-        
+        doSearchWithTerm(searchTerm)
+    }
+    
+    // start a search with the search term
+    func doSearchWithTerm(searchTerm : String)
+    {
+        offset = 0  // clear out the offset when doing a new search
+        loadingMoreView!.startAnimating()
         YelpClient.sharedInstance.searchWithTerm(searchTerm,offset: offset, limit: limit) {
             ( results : [YelpBusiness]?, error : NSError?) in
             self.isLoadingData = false
@@ -37,7 +57,11 @@ class BusinessTableViewController: UITableViewController {
             self.businesses = results
             self.tableView.reloadData()
         }
+
     }
+    
+    
+    //MARK: - UITableView DataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (businesses == nil) {
@@ -147,5 +171,26 @@ class BusinessTableViewController: UITableViewController {
             parameters[key] = value
         }
         return parameters
+    }
+    
+    //MARK: - UISearchBar Delegate
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
+        searchBar.resignFirstResponder()
+        if let searchBarText = searchBar.text {
+            searchTerm = searchBarText
+        }
+        doSearchWithTerm(searchTerm)
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchTerm = ""
+        searchBar.resignFirstResponder()
+        doSearchWithTerm(searchTerm)
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTerm = searchText
     }
 }
