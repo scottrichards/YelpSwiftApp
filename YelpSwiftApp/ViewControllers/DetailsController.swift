@@ -32,6 +32,7 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     override func viewDidLoad() {
+  //      navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
         if business == nil {
             return
         }
@@ -47,6 +48,7 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         if let centerLocation = business?.location {
             goToLocation(centerLocation)
         }
+
     }
     
     // center the map around the specified location
@@ -87,6 +89,7 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
                 if let mapView : MapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mapViewId") as? MapViewController
                 {
                     mapView.location = centerLocation
+                    mapView.locationName = business?.name
                     self.navigationController?.pushViewController(mapView, animated: true)
                 }
             }

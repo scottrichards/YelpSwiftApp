@@ -68,10 +68,20 @@ class YelpClient : BDBOAuth1RequestOperationManager
         )
     }
     
-    func searchWithTerm(term : String?, completion : (businesses:[YelpBusiness]?, error : NSError?) -> Void) {
+    func searchWithTerm(term : String?, offset: UInt = 0, limit: UInt = 20, completion : (businesses:[YelpBusiness]?, error : NSError?) -> Void) {
         let params : NSMutableDictionary? = ["ll":"37.774866,-122.394556"]
         if let term = term {
             params?.setObject(term, forKey:"term")
+        }
+        if let offsetStr : String = String(format: "%d", offset) {
+            params?.setObject(offsetStr, forKey:"offset")
+        }
+        if let limitStr : String = "\(limit)" {
+            params?.setObject(limitStr, forKey:"limit")
+        }
+        let stringNumber = "1234"
+        if let  numberFromString : Int = Int(stringNumber) {
+          print(numberFromString)
         }
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if (appDelegate.userLocation.foundLocation == true) {

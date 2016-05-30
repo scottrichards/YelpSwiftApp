@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FsA-Ho-ys5" id="5Aa-bW-pDD">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -114,7 +114,7 @@
                                     <constraint firstAttribute="height" constant="128" id="kdA-Sp-edV"/>
                                 </constraints>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="yie-wI-4eT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="yie-wI-4eT">
                                 <rect key="frame" x="8" y="281" width="304" height="117"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -122,11 +122,11 @@
                                 </constraints>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapCell" id="PCe-CU-WGf" customClass="MapCell" customModule="YelpSwiftApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapCell" id="PCe-CU-WGf" customClass="MapCell" customModule="YelpSwiftApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="304" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PCe-CU-WGf" id="ucd-6H-Pd4">
-                                            <rect key="frame" x="0.0" y="0.0" width="271" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="271" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Map" translatesAutoresizingMaskIntoConstraints="NO" id="b1G-bl-nb0">
@@ -148,7 +148,7 @@
                                         <rect key="frame" x="0.0" y="45" width="304" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60T-XU-EX0" id="rsd-GM-DNY">
-                                            <rect key="frame" x="0.0" y="0.0" width="271" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="271" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Call" translatesAutoresizingMaskIntoConstraints="NO" id="c28-VD-tsy">
@@ -237,7 +237,7 @@
             </objects>
             <point key="canvasLocation" x="2291" y="1169"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Title-->
         <scene sceneID="GoK-dH-Eh0">
             <objects>
                 <viewController storyboardIdentifier="mapViewId" id="rej-kh-SHQ" customClass="MapViewController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -261,6 +261,9 @@
                             <constraint firstItem="Npp-r5-83X" firstAttribute="top" secondItem="PEa-8u-9ek" secondAttribute="bottom" id="vXm-uW-jjr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="i6T-2a-3UG">
+                        <barButtonItem key="backBarButtonItem" title=" " id="101-DI-rKd"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="PEa-8u-9ek" id="2pa-Fe-pQs"/>
@@ -283,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UOw-Mr-565" id="f4O-1U-3Rx">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

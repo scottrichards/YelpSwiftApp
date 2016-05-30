@@ -23,7 +23,8 @@ class YelpBusiness: NSObject {
     init (dict : NSDictionary) {
         super.init()
         name = dict["name"] as? String
-        
+        print("---------")
+        print("business: \(name)")
         // image for the restaurant
         if let imageUrlString = dict["image_url"] as? String {
             imageUrl = NSURL(string: imageUrlString)
@@ -35,28 +36,35 @@ class YelpBusiness: NSObject {
         
         // set address and area e.g. 234 Townsend, SOMA
         address = ""
+        print("location:")
         if let locationDictionary = dict["location"] {
             if let addressArray = locationDictionary["address"] as? NSArray {
-                if let addressString = addressArray[0] as? String {
-                    address += addressString
+                if (addressArray.count > 0) {
+                    if let addressString = addressArray[0] as? String {
+                        address += addressString
+                    }
                 }
             }
             
             if let neighborhoods = locationDictionary["neighborhoods"] as? NSArray {
-                if (address.characters.count > 0) {
-                    address += ", "
+                if (neighborhoods.count > 0) {
+                    if (address.characters.count > 0) {
+                        address += ", "
+                    }
+                    if let neighborhoodStr = neighborhoods[0] as? String {
+                        address += neighborhoodStr
+                    }
                 }
-                address += (neighborhoods[0] as? String)!
             }
 
             if let coordinate : NSDictionary = locationDictionary["coordinate"] as? NSDictionary {
-                let latitude : Double = (coordinate["latitude"] as? Double)!
-                let longitude : Double = (coordinate["longitude"] as? Double)!
-                self.location = CLLocation(latitude: latitude, longitude: longitude)
+                if let latitude : Double = coordinate["latitude"] as? Double, longitude : Double = coordinate["longitude"] as? Double {
+                    self.location = CLLocation(latitude: latitude, longitude: longitude)
+                }
             }
             
         }
-        
+        print("address: \(address)")
         // set categories e.g. Japanese, Fusion, Asian
         categories = ""
         if let categoriesArray : NSArray = dict["categories"]  as? NSArray {
@@ -83,6 +91,7 @@ class YelpBusiness: NSObject {
         
         
         reviewCount = dict["review_count"] as? NSNumber
+        print("=========")
     }
 
     class func businessesFromJsonArray(jsonArray : NSArray) -> [YelpBusiness] {

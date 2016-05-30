@@ -13,13 +13,21 @@ import CoreLocation
 class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     var location : CLLocation?
+    var locationName : String?  // the name of the place e.g. "Sweetwater"
+    
+    
     
     override func viewDidLoad() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         super.viewDidLoad()
-        self.navigationItem.title = "Location"
+        if let title = locationName {
+            self.navigationItem.title = title
+        }
         if let _ = location {
             goToLocation(location!)
         }
+
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {
