@@ -22,9 +22,17 @@ class BusinessTableViewController: UITableViewController {
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
         isLoadingData = true
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.startAnimating()
+        
+        tableView.addSubview(loadingMoreView!)
+        
         YelpClient.sharedInstance.searchWithTerm(searchTerm,offset: offset, limit: limit) {
             ( results : [YelpBusiness]?, error : NSError?) in
             self.isLoadingData = false
+            self.loadingMoreView!.stopAnimating()
             self.offset += UInt((results?.count)!)
             self.businesses = results
             self.tableView.reloadData()
@@ -73,13 +81,31 @@ class BusinessTableViewController: UITableViewController {
     
     func onFiltersDone() {
         print("reDoSearch")
-        isLoadingData = true
+        startLoadingData()
         YelpClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
             (results : [YelpBusiness]?, error : NSError?) in
-            self.isLoadingData = false
+            self.stopLoadingData()
             self.businesses = results
             self.tableView.reloadData()
         }
+    }
+    
+    //MARK: - Loading progress indicator 
+    
+    // updates the loading status and displays the progress indicator while data is being retrieved
+    func startLoadingData()
+    {
+        isLoadingData = true
+        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView?.frame = frame
+        loadingMoreView!.startAnimating()
+    }
+    
+    // clears the loading status and hides the progress indicator while data is being retrieved
+    func stopLoadingData()
+    {
+        self.isLoadingData = false
+        self.loadingMoreView!.stopAnimating()
     }
     
     //MARK: - Scroll Delegate
@@ -93,10 +119,10 @@ class BusinessTableViewController: UITableViewController {
             
             // When the user has scrolled past the threshold, start requesting
             if (scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
-                isLoadingData = true
+                startLoadingData()
                 YelpClient.sharedInstance.searchWithTerm(searchTerm,offset: offset, limit: limit) {
                     ( results : [YelpBusiness]?, error : NSError?) in
-                    self.isLoadingData = false
+                    self.stopLoadingData()
                     self.offset += UInt((results?.count)!)
                     if let resultsArray = results {
                         if let _ = self.businesses {

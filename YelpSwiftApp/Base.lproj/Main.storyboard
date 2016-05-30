@@ -7,20 +7,20 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Yelp-->
+        <!--Businesses Table-->
         <scene sceneID="Kwo-aj-y9P">
             <objects>
-                <tableViewController id="Tuh-XI-reM" customClass="BusinessTableViewController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SFg-lO-NQt">
+                <tableViewController id="Tuh-XI-reM" userLabel="Businesses Table" customClass="BusinessTableViewController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="SFg-lO-NQt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="businessCellId" selectionStyle="default" indentationWidth="10" reuseIdentifier="businessCellReuseId" id="FsA-Ho-ys5" customClass="BusinessCellTableViewCell" customModule="YelpSwiftApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FsA-Ho-ys5" id="5Aa-bW-pDD">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="1828" y="1169"/>
         </scene>
-        <!--Yelp-->
+        <!--Details-->
         <scene sceneID="p5f-Ub-7lg">
             <objects>
-                <viewController storyboardIdentifier="detailsController" id="OYq-Pl-H7h" customClass="DetailsController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailsController" id="OYq-Pl-H7h" userLabel="Details" customClass="DetailsController" customModule="YelpSwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xEl-52-cRC"/>
                         <viewControllerLayoutGuide type="bottom" id="UCI-6n-HWE"/>
