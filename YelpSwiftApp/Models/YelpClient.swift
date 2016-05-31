@@ -48,11 +48,18 @@ class YelpClient : BDBOAuth1RequestOperationManager
         fatalError("init(coder:) has not been implemented")
     }
     
-    func searchWithParams(params : NSDictionary, completionHandler: (businesses : [YelpBusiness]?,error : NSError?) -> Void) {
-        for param in params {
+    func searchWithParams(params : NSDictionary, offset: UInt = 0, limit: UInt = 20, completionHandler: (businesses : [YelpBusiness]?,error : NSError?) -> Void) {
+        let parameters : NSMutableDictionary = NSMutableDictionary(dictionary: params)
+        if let offsetStr : String = String(format: "%d", offset) {
+            parameters.setObject(offsetStr, forKey:"offset")
+        }
+        if let limitStr : String = "\(limit)" {
+            parameters.setObject(limitStr, forKey:"limit")
+        }
+        for param in parameters {
             print("param: \(param)")
         }
-        self.GET("search", parameters: params,
+        self.GET("search", parameters: parameters,
                  success: {
                     (operation : AFHTTPRequestOperation, result : AnyObject) in
                     print("success")

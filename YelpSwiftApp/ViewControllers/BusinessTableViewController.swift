@@ -10,12 +10,14 @@ import UIKit
 
 class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
     var loadingMoreView:InfiniteScrollActivityView?
-    var businesses : [YelpBusiness]?;
+    var businesses : [YelpBusiness]?;   // array of business used to populate table data source
     var userLocation: UserLocation = UserLocation()
-    var offset : UInt = 0
-    var limit : UInt = 10
-    var isLoadingData : Bool = false
-    var searchTerm : String = ""
+    var offset : UInt = 0           // offset for next request from Yelp
+    var limit : UInt = 20           // # of records to request from yelp at a time
+    var isLoadingData : Bool = false    // true when waiting for data to load
+    var filterOn : Bool = false     // true if we are doing filter vs. search term in search bar
+    var searchTerm : String = ""    // search term from the search bar
+    var searchBar : UISearchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,6 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
     
         // create the search bar programatically since you won't be
         // able to drag one onto the navigation bar
-        let searchBar = UISearchBar()
         searchBar.sizeToFit()
         searchBar.delegate = self
         
@@ -40,6 +41,11 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
         // Set up Infinite Scroll loading indicator
         let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        
+        var insets = tableView.contentInset;
+        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        tableView.contentInset = insets
+        
         tableView.addSubview(loadingMoreView!)
         doSearchWithTerm(searchTerm)
     }
@@ -47,9 +53,10 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
     // start a search with the search term
     func doSearchWithTerm(searchTerm : String)
     {
+        filterOn = false
         offset = 0  // clear out the offset when doing a new search
         loadingMoreView!.startAnimating()
-        YelpClient.sharedInstance.searchWithTerm(searchTerm,offset: offset, limit: limit) {
+        YelpClient.sharedInstance.searchWithTerm(searchTerm, offset: offset, limit: limit) {
             ( results : [YelpBusiness]?, error : NSError?) in
             self.isLoadingData = false
             self.loadingMoreView!.stopAnimating()
@@ -57,7 +64,6 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
             self.businesses = results
             self.tableView.reloadData()
         }
-
     }
     
     
@@ -97,16 +103,20 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc : DetailsController = self.storyboard!.instantiateViewControllerWithIdentifier("detailsController") as! DetailsController
- //       navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         let business = self.businesses![indexPath.row]
         vc.business = business 
         self.showViewController(vc as UIViewController, sender: vc)
     }
     
+    // Filter based on specified filter criteria
     func onFiltersDone() {
         print("reDoSearch")
         startLoadingData()
-        YelpClient.sharedInstance.searchWithParams(self.getSearchParameters()) {
+        offset = 0
+        filterOn = true
+        searchTerm = ""
+        searchBar.text = ""
+        YelpClient.sharedInstance.searchWithParams(self.getSearchParameters(), offset: offset, limit: limit) {
             (results : [YelpBusiness]?, error : NSError?) in
             self.stopLoadingData()
             self.businesses = results
@@ -144,16 +154,30 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
             // When the user has scrolled past the threshold, start requesting
             if (scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
                 startLoadingData()
-                YelpClient.sharedInstance.searchWithTerm(searchTerm,offset: offset, limit: limit) {
-                    ( results : [YelpBusiness]?, error : NSError?) in
-                    self.stopLoadingData()
-                    self.offset += UInt((results?.count)!)
-                    if let resultsArray = results {
-                        if let _ = self.businesses {
-                            self.businesses! += resultsArray
+                if (filterOn) {     // if we are filtering
+                    YelpClient.sharedInstance.searchWithParams(self.getSearchParameters(), offset: offset, limit: limit) {
+                        (results : [YelpBusiness]?, error : NSError?) in
+                        self.stopLoadingData()
+                        if let resultsArray = results {
+                            if let _ = self.businesses {
+                                self.businesses! += resultsArray
+                            }
+                            self.offset += UInt((results?.count)!)
                         }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
+                } else {
+                    YelpClient.sharedInstance.searchWithTerm(searchTerm,offset: offset, limit: limit) {
+                        ( results : [YelpBusiness]?, error : NSError?) in
+                        self.stopLoadingData()
+                        if let resultsArray = results {
+                            if let _ = self.businesses {
+                                self.businesses! += resultsArray
+                            }
+                            self.offset += UInt((results?.count)!)
+                        }
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
