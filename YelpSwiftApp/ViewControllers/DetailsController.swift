@@ -33,6 +33,7 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     override func viewDidLoad() {
   //      navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         if business == nil {
             return
         }

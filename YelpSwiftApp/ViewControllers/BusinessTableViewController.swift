@@ -24,6 +24,8 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
         let nibName = UINib(nibName: "BusinessCellTableViewCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "BusinessCellTableViewCell")
     
+        // Add < for the back bar item
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         // create the search bar programatically since you won't be
         // able to drag one onto the navigation bar
         searchBar.sizeToFit()
