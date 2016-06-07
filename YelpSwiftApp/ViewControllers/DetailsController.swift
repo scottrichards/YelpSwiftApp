@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+// Displays details for a business
 class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var businessName: UILabel!
     @IBOutlet var distance: UILabel!
@@ -27,13 +28,15 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         case phone = 1
     }
     
+    // go back to main table list of buisnesses
     @IBAction func onBackToSearch(sender: AnyObject) {
           self.navigationController?.popViewControllerAnimated(true)
     }
 
     override func viewDidLoad() {
-  //      navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()   // white navigation bar
+        // Add < for the back bar item
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         if business == nil {
             return
         }
@@ -48,6 +51,7 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         // set starting center location in San Francisco
         if let centerLocation = business?.location {
             goToLocation(centerLocation)
+            addAnnotationAtCoordinate(centerLocation.coordinate, name: business?.name)
         }
 
     }
@@ -59,6 +63,17 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         mapView.setRegion(region, animated: false)
     }
     
+    // Add place marker with business name
+    func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, name : String?) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        if let _ = name {
+            annotation.title = name
+        }
+        mapView.addAnnotation(annotation)
+    }
+    
+    // return number of rows for diplaying address and phone #
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -83,6 +98,7 @@ class DetailsController: UIViewController, UITableViewDelegate, UITableViewDataS
         return cell!
     }
     
+    // Handle clicking on Phone # dial #, or Address open in Full Maps View
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
         case TableRowType.map.rawValue:

@@ -23,8 +23,9 @@ class MapViewController: UIViewController {
         if let title = locationName {
             self.navigationItem.title = title
         }
-        if let _ = location {
-            goToLocation(location!)
+        if let businessLocation = location {
+            goToLocation(businessLocation)
+            addAnnotationAtCoordinate(businessLocation.coordinate, name: locationName)
         }
 
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -43,5 +44,13 @@ class MapViewController: UIViewController {
         mapView.setRegion(region, animated: false)
     }
 
-
+    // Add place marker with business name
+    func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, name : String?) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        if let _ = name {
+            annotation.title = name
+        }
+        mapView.addAnnotation(annotation)
+    }
 }
