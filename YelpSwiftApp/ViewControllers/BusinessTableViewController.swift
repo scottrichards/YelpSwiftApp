@@ -93,7 +93,7 @@ class BusinessTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80.0
+        return 87.0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
